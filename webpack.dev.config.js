@@ -73,7 +73,7 @@ const config={
         },
     },
     resolve:{
-        extensions:['.js', '.vue','.css', '.png', '.jpg'],
+        extensions:['.js','.vue','.css','.json','.ts',".tsx"],
         alias:{
             vue$:`${nodeModulesPath}/vue/dist/vue.js`,
             img:`${srcDir}/img`,
@@ -99,11 +99,22 @@ const config={
             filename: 'css/[name].css',
             allChunks: true
         }),
-        new webpack.ProvidePlugin({'_': "underscore",'Vue':'vue','AppUtil':'apputil',}),
+        new webpack.ProvidePlugin({'_': "underscore",'Vue':'vue','AppUtil':'apputil'}),
         new OpenBrowserPlugin({url:'http://localhost:5000/main.html'})
     ].concat(htmlPlugins()),
     module:{
         rules:[
+            {
+                test:/\.tsx?$/,
+                use: [
+                    'babel-loader',
+                    {
+                        loader:'ts-loader',
+                        options:{appendTsxSuffixTo:[/.vue$/]}
+                    }
+                ],
+                exclude: [nodeModulesPath],
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',

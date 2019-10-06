@@ -66,7 +66,7 @@ const config={
         },
     },
     resolve:{
-        extensions:['.js', '.vue','.css', '.png', '.jpg'],
+        extensions:['.js','.vue','.css','.json','.ts',".tsx"],
         alias:{
             vue$:`${nodeModulesPath}/vue/dist/vue.js`,
             img:`${srcDir}/img`,

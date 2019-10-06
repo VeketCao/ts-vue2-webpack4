@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/core/*"]
+    },
+    "module": "esnext",
+    "target": "es5",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization" : false,
+    "allowJs": true,
+    "noImplicitThis": false,
+    "lib": ["dom", "es5", "es6","es7","es2015.promise"],
+    "sourceMap": true,
+    "pretty": true
+  },
+  "include": [
+    "src/core/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
